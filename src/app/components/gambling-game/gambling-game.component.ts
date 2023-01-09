@@ -119,7 +119,7 @@ export class GamblingGameComponent implements OnInit {
         this.successfulMessage = false;
       }, 2000);
     } else { 
-      alert('arasakmarisi tanxa angarishze');
+      alert('Insufficient amount in the account');
     }
   }
 
