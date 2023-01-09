@@ -108,18 +108,17 @@ export class GamblingGameComponent implements OnInit {
 
   // withdraw money from accaunt
   withdrawMoney() {
+     
     if (this.withdrawQuantity <= this.totalAmount) {
+       
       this.totalAmount = this.totalAmount - this.withdrawQuantity;
       this.withdrawDemoMoney.reset();
+       
       this.successfulMessage = true;
       setTimeout(() => {
         this.successfulMessage = false;
       }, 2000);
-    } else {
-      const button = document.getElementById(
-        'btn1'
-      ) as HTMLButtonElement | null;
-      button?.setAttribute('disabled', '');
+    } else { 
       alert('arasakmarisi tanxa angarishze');
     }
   }
