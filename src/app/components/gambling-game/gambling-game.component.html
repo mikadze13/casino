@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="total-amount-mother">
+        <div class="total-amount">DEMO BALANCE: {{totalAmount | currency : 'USD'}}</div>
+        <div class="user-name">{{name}}</div>
+    </div>
+    <div class="exit-moth">
+        <img routerLink="/deposit" src="../../../assets/images/exit.png" alt="exit" class="exit-img" title="Exit ">
+        <button (click)="Show()" class="but2">withdraw</button>
+    </div>
+
+    <div class="withdraw-money" *ngIf="show">
+        <div class="successful-message">
+           <p class="message" *ngIf="successfulMessage"> Successful transaction <img src="../../../assets/images/transaction.png" alt=""></p>
+        </div>
+        <div> 
+        <form [formGroup]="withdrawDemoMoney" class="withdraw">
+            <div class="cancel"><img (click)="cancel()" src="../../../assets/images/cancel.png" alt="cancel"></div>
+            <div style="display: flex; flex-direction: column; height: 74px; width: 200px;">
+                <input [(ngModel)]="withdrawQuantity" type="number" name="" id="" formControlName="withdrawInp"
+                    class="withdrawInp">
+                <span *ngIf="withdrawInp && withdrawInp.invalid && withdrawInp.touched" class="sp1">Enter the amount to withdraw</span>
+            </div>
+            <button (click)="withdrawMoney()" class="but1" id="btn1">enter</button>
+        </form>
+    </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="betform-container">
+            <form [formGroup]="betForm" class="betForm">
+                <div style="display: flex; flex-direction:column; width: 78%;">
+                    <input [(ngModel)]="Bet" min="1" max="{{totalAmount}}" formControlName="bet" type="number"
+                        placeholder="Your Bet">
+                    <span *ngIf="bet && bet.invalid && bet.touched" class="sp1">enter your bet</span>
+                </div>
+                <div style="width: 20%; display: flex; justify-content: flex-end;">
+                    <button (click)="multiplyBet()" class="multiplyBetBut">2x</button>
+                </div>
+            </form>
+
+            <div class="bet-div">
+                <div class="select-Col-Container">
+
+                    <select [(ngModel)]="selectedColor" name="" id="">
+                        <option hidden>{{selectedColor}}</option>
+                        <option value="red">red</option>
+                        <option value="black">black</option>
+                    </select>
+                    <button 
+                     (click)="guess()" [disabled]="betForm.invalid" type="submit" class="but" id="btn">guess</button>
+                </div>
+            </div>
+        </div>
+        <div class="card-img" [ngClass]="{'hidden': cardImg}">
+            <div class="text"> 
+                <h5 *ngIf="loseProbability">YOU LOSE</h5>
+                <h5 *ngIf="winProbability">YOU WIN</h5>
+            </div>
+             <div>
+                <img class="card" [src]="imageUrlBlack" alt="black" *ngIf="bool">
+                <img class="card" [src]="imageUrlRed" alt="red" *ngIf="bool1">
+            </div>
+        </div>
+    </div>
+</div>

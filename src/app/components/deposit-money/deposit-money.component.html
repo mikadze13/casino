@@ -1,0 +1,32 @@
+<div class="main">
+    <form class="mother" [formGroup]="UserInfo" >
+        <input type="text" placeholder="Username" formControlName="name">
+        <div class="validation">
+            <span *ngIf="name && name.invalid && name.touched" class="sp1">Enter Your Username</span>
+        </div>
+        <input type="number" placeholder="Age" formControlName="age" >
+        <div class="validation"> 
+            <span *ngIf="age && age.invalid && age.touched" class="sp1">Enter Your Age  (<span style="font-size: 9px; color: red;">Warning! Your age must be over 24</span>)</span>
+ 
+        </div>
+        
+        <input type="number" placeholder="Deposit" formControlName="quantity" >
+        <div class="validation">
+            <span *ngIf="quantity && quantity.invalid && quantity.touched" class="sp1">Enter Your Deposit</span>
+        </div>
+        <div class="but-container">
+            <button 
+            (click)="but()"
+            routerLink="/enter"
+            [queryParams]="{
+            name:UserInfo.value.name,
+            age:UserInfo.value.age,
+            quantity:UserInfo.value.quantity
+            }"
+            [disabled]="UserInfo.invalid">
+                Enter
+            </button>
+        </div>
+
+    </form>
+</div>
