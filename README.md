@@ -8,7 +8,7 @@ Here you can play guess card and win demo money
     
 ## Screenshots
 
-![App Screenshot](https://i.paste.pics/20d4855ed5ce0b9200e42dbaaab0e4a5.png)
+![App Screenshot](/src/assets/images/casino-screenshot.png)
 
 ## Links
 - Live site URL - [Live site](https://casinodemo.vercel.app/)
